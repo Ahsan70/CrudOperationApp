@@ -173,9 +173,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106061504106_IntialModel.cs" />
+    <Compile Include="Migrations\202106061504106_IntialModel.Designer.cs">
+      <DependentUpon>202106061504106_IntialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106061521511_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202106061521511_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>202106061521511_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106061532053_AddMembershipType.cs" />
+    <Compile Include="Migrations\202106061532053_AddMembershipType.Designer.cs">
+      <DependentUpon>202106061532053_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106061534310_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202106061534310_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>202106061534310_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106061642581_AddAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\202106061642581_AddAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>202106061642581_AddAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -188,6 +211,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="MigrationData.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -251,6 +275,23 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106061504106_IntialModel.resx">
+      <DependentUpon>202106061504106_IntialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061521511_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>202106061521511_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061532053_AddMembershipType.resx">
+      <DependentUpon>202106061532053_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061534310_PopulateMembershipTypes.resx">
+      <DependentUpon>202106061534310_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106061642581_AddAnnotationsToCustomerName.resx">
+      <DependentUpon>202106061642581_AddAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
