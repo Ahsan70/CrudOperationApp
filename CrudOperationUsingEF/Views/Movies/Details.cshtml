@@ -1,0 +1,14 @@
+﻿@model  CrudOperationUsingEF.Models.Movie
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul>
+
+    <li>Genre: <strong> @Model.Genre.Name</strong></li>
+    <li>Release Date: <strong> @Model.ReleaseDate</strong></li>
+    <li>Date Added: <strong> @Model.DateAdded</strong></li>
+    <li>Number In Stock<strong> @Model.NumberInStock</strong></li>
+
+</ul>

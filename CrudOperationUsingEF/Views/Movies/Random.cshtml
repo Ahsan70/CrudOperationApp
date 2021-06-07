@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CrudOperationUsingEF.Models.Movie>
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (!Model.Any())
+{
+    <div class="alert alert-dismissible alert-danger">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        We dont have any Movie yet.
+    </div>
+}
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+            <th>Movie </th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr>
+
+                <td>@Html.ActionLink(movie.Name, "Details", new { id = movie.Id }, null)</td>
+                <td>@movie.Genre.Name</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
