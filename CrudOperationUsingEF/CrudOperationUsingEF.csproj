@@ -168,8 +168,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -193,16 +195,33 @@
     <Compile Include="Migrations\202106061642581_AddAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>202106061642581_AddAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106062058230_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\202106062058230_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>202106062058230_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106070910362_AddGenreandMovieTable.cs" />
+    <Compile Include="Migrations\202106070910362_AddGenreandMovieTable.Designer.cs">
+      <DependentUpon>202106070910362_AddGenreandMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106071121507_AddMemberShipTypeTable.cs" />
+    <Compile Include="Migrations\202106071121507_AddMemberShipTypeTable.Designer.cs">
+      <DependentUpon>202106071121507_AddMemberShipTypeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-pulse.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -259,6 +278,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Movies\Random.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -291,6 +316,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106061642581_AddAnnotationsToCustomerName.resx">
       <DependentUpon>202106061642581_AddAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106062058230_AddNameToMembershipType.resx">
+      <DependentUpon>202106062058230_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106070910362_AddGenreandMovieTable.resx">
+      <DependentUpon>202106070910362_AddGenreandMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106071121507_AddMemberShipTypeTable.resx">
+      <DependentUpon>202106071121507_AddMemberShipTypeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
