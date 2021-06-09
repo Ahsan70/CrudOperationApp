@@ -28,13 +28,52 @@ namespace CrudOperationUsingEF.Controllers
         }
         public ActionResult New()
         {
-            var membershipTypes = _dbContext.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+          
+            var viewModel = new CustomerFormViewModel
             {
-                MembershipTypes = membershipTypes
+                MembershipTypes = GetMembershipTypes()
 
             };
-            return View(viewModel);
+            return View("CustomerForm",viewModel);
+        }
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if(!ModelState.IsValid)
+            {
+                var viewModel=new CustomerFormViewModel
+                {
+                    Customer=customer,
+                    MembershipTypes= GetMembershipTypes()
+                };
+                return View("CustomerForm",viewModel);
+            }
+            if(customer.Id==0)
+            _dbContext.Customers.Add(customer);
+            else
+            {
+                var customerIndb = _dbContext.Customers.Single(x => x.Id == customer.Id);
+                customerIndb.Name = customer.Name;
+                customerIndb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                customerIndb.BirthDate = customer.BirthDate;
+                customerIndb.MembershipTypeId = customer.MembershipTypeId;
+
+            }
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index","Customers");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _dbContext.Customers.SingleOrDefault(x=> x.Id==id);
+            if (customer == null)
+                return HttpNotFound();
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = GetMembershipTypes()
+            };
+            return View("CustomerForm",viewModel);
         }
         public ActionResult Details(int id)
         {
@@ -43,6 +82,10 @@ namespace CrudOperationUsingEF.Controllers
                 return HttpNotFound();
             
             return View(customer);
+        }
+        public IEnumerable<MembershipType>GetMembershipTypes()
+        {
+          return  _dbContext.MembershipTypes.ToList();
         }
         public IEnumerable<Customer> GetCustomers()
         {

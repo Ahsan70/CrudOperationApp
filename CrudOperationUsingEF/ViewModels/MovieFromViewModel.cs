@@ -6,10 +6,10 @@ using System.Web;
 
 namespace CrudOperationUsingEF.ViewModels
 {
-    public class NewCustomerViewModel
+    public class MovieFromViewModel
     {
-        public IEnumerable<MembershipType> MembershipTypes { get; set; }
-        public Customer Customer { get; set; }
+        public Movie Movie { get; set; }
+        public IEnumerable<Genre> Genres { get; set; }
 
     }
 }
