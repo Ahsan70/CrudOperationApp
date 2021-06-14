@@ -20,15 +20,15 @@ namespace CrudOperationUsingEF.Controllers.Api
         {
             return _dbContext.Customers.ToList().Select(AutoMapper.Mapper.Map<Customer,CustomerDto>);
         }
-        public CustomerDto GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = _dbContext.Customers.SingleOrDefault(c=> c.Id==id);
             if (customer != null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-            return AutoMapper.Mapper.Map<Customer,CustomerDto>(customer); 
+            return Ok( AutoMapper.Mapper.Map<Customer,CustomerDto>(customer)); 
         }
         [HttpPost]
-        public CustomerDto CreateCustomer(CustomerDto customerDto)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -37,7 +37,7 @@ namespace CrudOperationUsingEF.Controllers.Api
             _dbContext.Customers.Add(customer);
             _dbContext.SaveChanges();
             customerDto.Id = customer.Id;
-            return customerDto;
+            return Created(new Uri(Request.RequestUri+"/"+customer.Id),customerDto);
         }
         [HttpPut]
         public void UpdateCustomer(int id, CustomerDto customerDto)
