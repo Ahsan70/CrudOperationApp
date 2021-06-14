@@ -1,3 +1,4 @@
+using CrudOperationUsingEF.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CrudOperationUsingEF
     {
         protected void Application_Start()
         {
+            AutoMapper.Mapper.Initialize(x => x.AddProfile<MappingProfile>());
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
